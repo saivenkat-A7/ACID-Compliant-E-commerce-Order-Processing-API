@@ -89,7 +89,7 @@ The application follows a clean architecture with separation of concerns:
 ### 1. Clone the Repository
 
 ```bash
-git clone 
+git clone https://github.com/saivenkat-A7/ACID-Compliant-E-commerce-Order-Processing-API.git
 
 ```
 
@@ -99,7 +99,7 @@ git clone
 cp .env.example .env
 ```
 
-The default configuration works with Docker Compose. Modify if needed:
+
 
 ```env
 API_PORT=8080
@@ -158,7 +158,7 @@ GET /api/products
   {
     "id": 1,
     "name": "Laptop",
-    "price": 999.99,
+    "price": 55000.99,
     "stock": 10
   }
 ]
@@ -214,14 +214,14 @@ GET /api/orders/:orderId
   "createdAt": "2026-02-15T12:30:00.000Z",
   "user": {
     "id": 1,
-    "email": "john.doe@example.com"
+    "email": "venkat@example.com"
   },
   "items": [
     {
       "productId": 1,
       "productName": "Laptop",
       "quantity": 2,
-      "price": 999.99
+      "price": 55000.99
     }
   ]
 }
@@ -241,21 +241,8 @@ PUT /api/orders/:orderId/cancel
 }
 ```
 
-**Note**: This endpoint is idempotent. Canceling an already-canceled order returns success.
 
-### Health Check
 
-```http
-GET /health
-```
-
-**Response**: `200 OK`
-```json
-{
-  "status": "ok",
-  "db": "healthy"
-}
-```
 
 ## Database Schema
 
@@ -349,39 +336,9 @@ docker-compose exec db psql -U user -d ecommerce -c "SELECT * FROM products;"
 docker-compose exec db psql -U user -d ecommerce -c "SELECT * FROM orders;"
 ```
 
-## Project Structure
 
-```
-.
-├── src/
-│   ├── controllers/         # Request handlers
-│   │   ├── healthController.js
-│   │   ├── orderController.js
-│   │   └── productController.js
-│   ├── services/           # Business logic
-│   │   ├── orderService.js
-│   │   └── paymentService.js
-│   ├── routes/             # API routes
-│   │   └── api.js
-│   ├── utils/              # Utilities
-│   │   ├── db.js          # Database client
-│   │   └── logger.js      # Structured logging
-│   ├── app.js             # Express app setup
-│   └── server.js          # Server entry point
-├── prisma/
-│   └── schema.prisma      # Database schema
-├── db/
-│   └── seeds/             # Database seed files
-│       └── 01-seed.sql
-├── docker-compose.yml     # Docker orchestration
-├── Dockerfile            # Application container
-├── package.json          # Dependencies
-├── .env.example          # Environment template
-├── submission.json       # Test data config
-└── README.md            # This file
-```
 
-## Key Implementation Details
+##  Implementation Details
 
 ### Transaction Isolation
 
@@ -440,27 +397,6 @@ docker-compose ps
 docker-compose restart
 ```
 
-### Port Conflicts
-
-If port 8080 or 5432 is already in use:
-
-1. Update `.env`:
-```env
-API_PORT=3000
-```
-
-2. Update `docker-compose.yml` port mapping accordingly
-
-### Migrations Not Running
-
-```bash
-# Manually run migrations
-docker-compose exec app npx prisma migrate deploy
-
-# Or rebuild containers
-docker-compose down -v
-docker-compose up --build
-```
 
 ## Production Considerations
 
@@ -490,10 +426,4 @@ For production deployment, consider:
    - Implement rate limiting
    - Use message queues for async operations
 
-## License
 
-MIT
-
-## Contact
-
-For questions or support, please open an issue in the repository.
