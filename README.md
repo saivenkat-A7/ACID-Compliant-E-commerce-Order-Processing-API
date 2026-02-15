@@ -2,18 +2,7 @@
 
 A robust, ACID-compliant e-commerce order processing API built with Node.js, Express, PostgreSQL, and Prisma ORM. This project demonstrates implementation of database transactions, concurrency control, and data consistency in a production-grade backend system.
 
-## Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Architecture](#architecture)
-- [Prerequisites](#prerequisites)
-- [Quick Start](#quick-start)
-- [API Documentation](#api-documentation)
-- [Database Schema](#database-schema)
-- [Testing](#testing)
-- [Project Structure](#project-structure)
 
 ## Overview
 
@@ -28,14 +17,14 @@ This API handles e-commerce order processing with ACID transaction guarantees. I
 
 ## Features
 
-✅ ACID-compliant database transactions using Prisma  
-✅ Connection pooling for optimized database performance  
-✅ Automatic inventory management with stock validation  
-✅ Idempotent order cancellation  
-✅ Structured JSON logging with transaction tracing  
-✅ Comprehensive error handling and rollback mechanisms  
-✅ Docker containerization with health checks  
-✅ Automated database seeding for testing  
+ACID-compliant database transactions using Prisma  
+Connection pooling for optimized database performance  
+Automatic inventory management with stock validation  
+Idempotent order cancellation  
+Structured JSON logging with transaction tracing  
+Comprehensive error handling and rollback mechanisms  
+Docker containerization with health checks  
+Automated database seeding for testing  
 
 ## Tech Stack
 
@@ -93,18 +82,14 @@ The application follows a clean architecture with separation of concerns:
 4. Update order status to 'cancelled'
 5. Commit transaction (idempotent - safe to retry)
 
-## Prerequisites
 
-- Docker & Docker Compose
-- Node.js 18+ (for local development)
-- Git
 
 ## Quick Start
 
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone 
 
 ```
 
